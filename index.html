@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aussprache: s – sch · st – scht</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06222b;--card:#effaf7;--ink:#06222b;--s:#22c55e;--sch:#ff6b57;--st:#3b82f6;--scht:#f5b700;--mint:#7de2d1}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,"Segoe UI",sans-serif;font-weight:600;color:var(--ink);line-height:1.5;min-height:100vh;
+ background:radial-gradient(ellipse at 10% 0,#0f6b73 0,transparent 45%),radial-gradient(ellipse at 100% 40%,#7a2a4e 0,transparent 40%),radial-gradient(ellipse at 0 100%,#1c4f9c 0,transparent 45%),var(--bg);background-attachment:fixed}
+h1,h2,h3,.big{font-family:Fredoka,Nunito,sans-serif;margin:0;line-height:1.1}
+main{max-width:1000px;margin:0 auto;padding:22px 16px 80px}
+.hero{color:#fff;text-align:center;padding:20px 0}
+.hero h1{font-size:clamp(32px,6.5vw,58px);font-weight:700}
+.hero p{font-size:20px;margin:6px 0 24px;opacity:.9}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.snd{border:0;border-radius:32px;padding:22px 10px 18px;cursor:pointer;color:#fff;box-shadow:0 10px 0 rgba(0,0,0,.28);transition:transform .12s}
+.snd:active{transform:translateY(6px);box-shadow:0 4px 0 rgba(0,0,0,.28)}
+.snd.s{background:var(--s)}.snd.sch{background:var(--sch)}
+.snd .big{display:block;font-size:clamp(60px,14vw,120px);font-weight:700}
+.snd .em{font-size:44px;display:block}
+.snd .tip{display:block;font-size:17px;margin-top:6px;font-weight:800}
+.wave{display:flex;gap:4px;justify-content:center;align-items:center;height:34px;margin-top:8px}
+.wave i{width:7px;height:8px;border-radius:4px;background:rgba(255,255,255,.85)}
+.snd.on .wave i{animation:w .5s infinite ease-in-out}
+.snd.on .wave i:nth-child(2n){animation-delay:.12s}.snd.on .wave i:nth-child(3n){animation-delay:.25s}
+@keyframes w{50%{height:32px}}
+section{background:var(--card);border-radius:28px;padding:26px 22px;margin-top:26px;box-shadow:0 10px 0 rgba(0,0,0,.25)}
+section>h2{font-size:clamp(26px,4.5vw,36px)}
+.lead{font-size:18px;margin:6px 0 16px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.colh{font-family:Fredoka;font-size:30px;font-weight:700;color:#fff;border-radius:18px;padding:6px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.colh.s{background:var(--s)}.colh.sch{background:var(--sch)}.colh.st{background:var(--st)}.colh.scht{background:var(--scht);color:var(--ink)}
+.words{display:flex;flex-wrap:wrap;gap:8px}
+.w{font:inherit;font-size:19px;font-weight:800;background:#fff;border:3px solid #cfe7e1;border-radius:14px;padding:6px 14px;cursor:pointer;color:var(--ink)}
+.w:hover{border-color:var(--ink)}
+.w::before{content:"🔊 ";font-size:14px}
+.w b{border-radius:6px;padding:0 2px}
+.w b.s{background:#bff0cf}.w b.sch{background:#ffd0c9}.w b.st{background:#c9dcff}.w b.scht{background:#ffe9a6}
+.mouth{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.mouth div{background:#fff;border-radius:18px;padding:12px 16px;font-size:17px}
+.mouth span{font-size:36px;display:block}
+.rule2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rbox{border-radius:22px;padding:16px;border:4px solid}
+.rbox.a{border-color:var(--scht);background:#fff8dc}.rbox.e{border-color:var(--st);background:#eaf1ff}
+.rbox h3{font-size:24px;margin-bottom:4px}
+.rbox .arrow{font-family:Fredoka;font-size:34px;font-weight:700;margin:4px 0 10px}
+.syl{display:inline-flex;gap:3px;font-family:Fredoka;font-size:30px;font-weight:600}
+.syl span{border-bottom:5px solid #bbb;padding:0 4px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.score{margin-left:auto;font-family:Fredoka;font-size:22px;background:var(--mint);padding:2px 16px;border-radius:99px}
+.dots{display:flex;gap:5px;flex-wrap:wrap}.dot{width:13px;height:13px;border-radius:50%;background:#cfe7e1}.dot.on{background:var(--s)}.dot.cur{background:var(--scht);outline:3px solid var(--ink)}
+.play{font-family:Fredoka;font-size:30px;font-weight:600;border:0;border-radius:99px;background:var(--ink);color:#fff;padding:14px 34px;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.3)}
+.play:active{transform:translateY(4px)}
+.slow{font:inherit;font-weight:800;border:3px solid var(--ink);background:#fff;border-radius:99px;padding:8px 16px;cursor:pointer;color:var(--ink)}
+.slow.on{background:var(--mint)}
+.choices{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
+.btn{font-family:Fredoka;font-weight:700;font-size:34px;color:#fff;border:0;border-radius:20px;padding:8px 36px;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.28)}
+.btn:active{transform:translateY(4px)}
+.btn[data-a=s]{background:var(--s)}.btn[data-a=sch]{background:var(--sch)}.btn[data-a=st]{background:var(--st)}.btn[data-a=scht]{background:var(--scht);color:var(--ink)}
+.btn:disabled{opacity:.4}
+.btn.next{background:var(--ink);font-size:20px;box-shadow:0 5px 0 rgba(0,0,0,.3)}
+.fb{min-height:64px;font-size:20px;font-weight:800;margin-top:14px}
+.good{color:#0f8a45}.bad{color:#c2321f}
+.reveal{font-family:Fredoka;font-size:40px;font-weight:600;margin-top:4px}
+.shake{animation:sh .35s}@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.rrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#fff;border-radius:18px;padding:12px 16px;margin-bottom:12px;font-size:19px}
+.rrow .lab{flex:1;min-width:220px}
+.tg{font-family:Fredoka;font-weight:700;font-size:26px;border:4px solid #cfe7e1;background:#fff;border-radius:14px;padding:2px 22px;cursor:pointer;color:var(--ink)}
+.tg.pick[data-a=st]{background:var(--st);border-color:var(--st);color:#fff}.tg.pick[data-a=scht]{background:var(--scht);border-color:var(--scht)}
+.tg.ok{outline:4px solid var(--s)}.tg.no{outline:4px solid var(--sch)}
+.sent{background:#fff;border-radius:18px;padding:14px 18px;margin-bottom:12px;display:flex;gap:14px;align-items:center;font-size:21px}
+.sent button{flex:none;width:52px;height:52px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-size:22px;cursor:pointer}
+.sent b.sch,.sent b.scht{background:#ffd9d3;border-radius:6px;padding:0 2px}.sent b.st{background:#c9dcff;border-radius:6px;padding:0 2px}.sent b.s{background:#bff0cf;border-radius:6px;padding:0 2px}
+.win{text-align:center;font-family:Fredoka;font-size:32px;padding:10px}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:9}
+footer{text-align:center;color:#fff;opacity:.8;margin-top:30px}
+:focus-visible{outline:4px solid var(--scht);outline-offset:2px}
+@media(max-width:640px){.duo,.cols,.mouth,.rule2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+<main>
+<header class="hero">
+  <h1>Aussprache: s · sch · st · scht</h1>
+  <p>Drück auf die Töne. Hör genau zu!</p>
+  <div class="duo">
+    <button class="snd s" id="bs"><span class="em">🐍</span><span class="big">s</span><span class="tip">Zähne zusammen, Lippen breit</span><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></button>
+    <button class="snd sch" id="bsch"><span class="em">🤫</span><span class="big">sch</span><span class="tip">Lippen rund, Zunge zurück</span><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></button>
+  </div>
+</header>
+
+<section>
+  <h2>s oder sch?</h2>
+  <p class="lead">Tippe auf ein Wort und hör zu.</p>
+  <div class="cols">
+    <div><div class="colh s"><span>s</span><span>🐍</span></div>
+      <div class="words" id="ws"></div></div>
+    <div><div class="colh sch"><span>sch</span><span>🤫</span></div>
+      <div class="words" id="wsch"></div></div>
+  </div>
+  <div class="mouth">
+    <div><span>😁</span><b>s</b> – Die Zähne sind fast zu. Der Mund ist breit. Wie eine Schlange: ssss.</div>
+    <div><span>😗</span><b>sch</b> – Die Lippen sind rund. Wie bei „Pst, leise!“: schhh.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Übung 1: Was hörst du?</h2>
+  <p class="lead">Hör das Wort. Wähle <b>s</b> oder <b>sch</b>.</p>
+  <div class="bar"><div class="dots" id="d1"></div><div class="score" id="s1">0 / 8</div></div>
+  <button class="play" id="p1">🔊 Hören</button> <button class="slow" id="sl1">🐢 langsam</button>
+  <div class="choices" id="c1"><button class="btn" data-a="s">s</button><button class="btn" data-a="sch">sch</button></div>
+  <div class="fb" id="f1"></div>
+  <button class="btn next" id="n1" style="display:none">Weiter ➜</button>
+</section>
+
+<section>
+  <h2>Die Regel: st oder scht?</h2>
+  <p class="lead">Das Wort ist <b>st</b>. Aber du sprichst oft <b>scht</b>!</p>
+  <div class="rule2">
+    <div class="rbox a">
+      <h3>Am Wort- oder Silbenanfang</h3>
+      <div class="arrow">st → <span style="background:var(--scht);padding:0 10px;border-radius:12px">scht</span></div>
+      <div class="words">
+        <button class="w" data-say="Start"><b class="scht">St</b>art</button>
+        <button class="w" data-say="stehen"><b class="scht">st</b>ehen</button>
+        <button class="w" data-say="Stress"><b class="scht">St</b>ress</button>
+        <button class="w" data-say="Frühstück">Früh<b class="scht">st</b>ück</button>
+        <button class="w" data-say="vorstellen">vor<b class="scht">st</b>ellen</button>
+      </div>
+      <p style="margin:12px 0 0">Früh|<b>stück</b> – die zweite Silbe beginnt mit <b>st</b>.</p>
+    </div>
+    <div class="rbox e">
+      <h3>Am Wortende oder im Wort</h3>
+      <div class="arrow">st → <span style="background:var(--st);color:#fff;padding:0 10px;border-radius:12px">st</span></div>
+      <div class="words">
+        <button class="w" data-say="Fest">Fe<b class="st">st</b></button>
+        <button class="w" data-say="Obst">Ob<b class="st">st</b></button>
+        <button class="w" data-say="Durst">Dur<b class="st">st</b></button>
+        <button class="w" data-say="lustig">lu<b class="st">st</b>ig</button>
+        <button class="w" data-say="Dienstag">Dien<b class="st">st</b>ag</button>
+      </div>
+      <p style="margin:12px 0 0">Das <b>s</b> und das <b>t</b> bleiben zusammen: s-t.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Übung 2: st oder scht?</h2>
+  <p class="lead">Hör das Wort. Was hörst du?</p>
+  <div class="bar"><div class="dots" id="d2"></div><div class="score" id="s2">0 / 12</div></div>
+  <button class="play" id="p2">🔊 Hören</button> <button class="slow" id="sl2">🐢 langsam</button>
+  <div class="choices" id="c2"><button class="btn" data-a="st">st</button><button class="btn" data-a="scht">scht</button></div>
+  <div class="fb" id="f2"></div>
+  <button class="btn next" id="n2" style="display:none">Weiter ➜</button>
+</section>
+
+<section>
+  <h2>Übung 3: Regel ergänzen</h2>
+  <p class="lead">Tippe auf <b>st</b> oder <b>scht</b>.</p>
+  <div class="rrow" data-right="scht"><div class="lab">Am Wortanfang (<i>Start</i>) oder am Silbenanfang (<i>Frühstück</i>):</div>
+    <button class="tg" data-a="st">st</button><button class="tg" data-a="scht">scht</button></div>
+  <div class="rrow" data-right="st"><div class="lab">Am Wortende (<i>Fest</i>) oder im Wortinneren (<i>lustig</i>):</div>
+    <button class="tg" data-a="st">st</button><button class="tg" data-a="scht">scht</button></div>
+  <button class="btn next" id="chk3">Prüfen ✔</button>
+  <div class="fb" id="f3"></div>
+</section>
+
+<section>
+  <h2>Übung 4: Sprich nach!</h2>
+  <p class="lead">Hör zu. Dann sprich laut nach. Erst langsam, dann schnell.</p>
+  <div id="sents"></div>
+</section>
+<footer>Netzwerk neu A1 · Aussprache · Viel Spaß! 🎉</footer>
+</main>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+let ac;const AC=()=>ac=ac||new(window.AudioContext||window.webkitAudioContext)();
+function tone(f,d=.15,t="sine",at=0){try{const c=AC(),o=c.createOscillator(),g=c.createGain();o.type=t;o.frequency.value=f;o.connect(g);g.connect(c.destination);const s=c.currentTime+at;g.gain.setValueAtTime(.15,s);g.gain.exponentialRampToValueAtTime(.001,s+d);o.start(s);o.stop(s+d)}catch(e){}}
+const sOk=()=>{tone(660,.12);tone(880,.2,"sine",.1)},sNo=()=>tone(180,.3,"sawtooth"),sWin=()=>[523,659,784,1046].forEach((f,i)=>tone(f,.25,"triangle",i*.12));
+// Rausch-Laute: s = hell (hohe Frequenz), sch = dunkler, tiefer (Lippen rund)
+function hiss(kind,btn){try{const c=AC(),len=c.sampleRate*1.4,buf=c.createBuffer(1,len,c.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=Math.random()*2-1;
+ const src=c.createBufferSource();src.buffer=buf;const f=c.createBiquadFilter(),g=c.createGain();
+ if(kind==="s"){f.type="highpass";f.frequency.value=5500}else{f.type="bandpass";f.frequency.value=2800;f.Q.value=.9}
+ src.connect(f);f.connect(g);g.connect(c.destination);const t=c.currentTime;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(kind==="s"?.35:.9,t+.08);g.gain.setValueAtTime(kind==="s"?.35:.9,t+1.1);g.gain.linearRampToValueAtTime(0,t+1.3);src.start(t);src.stop(t+1.4);
+ btn.classList.add("on");setTimeout(()=>btn.classList.remove("on"),1350)}catch(e){}}
+$("#bs").onclick=e=>hiss("s",e.currentTarget);$("#bsch").onclick=e=>hiss("sch",e.currentTarget);
+function say(t,slow){if(!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="de-DE";u.rate=slow?.55:.85;const v=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.startsWith("de"));if(v)u.voice=v;speechSynthesis.speak(u)}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-say]");if(b)say(b.dataset.say,false)});
+const cv=$("#cv"),cx=cv.getContext("2d");let P=[];const fit=()=>{cv.width=innerWidth;cv.height=innerHeight};fit();addEventListener("resize",fit);
+function boom(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;const c=["#22c55e","#ff6b57","#3b82f6","#f5b700","#fff"];const run=P.length>0;for(let i=0;i<120;i++)P.push({x:cv.width/2,y:cv.height/3,vx:(Math.random()-.5)*14,vy:Math.random()*-12-2,s:Math.random()*8+4,c:c[i%5],l:90});if(!run)loop()}
+function loop(){cx.clearRect(0,0,cv.width,cv.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.l--;cx.fillStyle=p.c;cx.fillRect(p.x,p.y,p.s,p.s)});P=P.filter(p=>p.l>0);if(P.length)requestAnimationFrame(loop);else cx.clearRect(0,0,cv.width,cv.height)}
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+const dots=(id,n,i)=>{$(id).innerHTML=Array.from({length:n},(_,k)=>`<span class="dot ${k<i?"on":k==i?"cur":""}"></span>`).join("")};
+
+// Wortlisten (Teil 1)
+const S=[["Saft","<b class=s>S</b>aft"],["Bus","Bu<b class=s>s</b>"],["Salz","<b class=s>S</b>alz"],["Suppe","<b class=s>S</b>uppe"],["Sonne","<b class=s>S</b>onne"],["Tasse","Ta<b class=s>ss</b>e"]];
+const SCH=[["Tisch","Ti<b class=sch>sch</b>"],["Schule","<b class=sch>Sch</b>ule"],["Fisch","Fi<b class=sch>sch</b>"],["Schuh","<b class=sch>Sch</b>uh"],["Tasche","Ta<b class=sch>sch</b>e"],["Schokolade","<b class=sch>Sch</b>okolade"]];
+const mk=(a,id)=>$(id).innerHTML=a.map(w=>`<button class="w" data-say="${w[0]}">${w[1]}</button>`).join("");mk(S,"#ws");mk(SCH,"#wsch");
+
+// generische Hör-Übung
+function drill(o){let i=0,sc=0,slow=false,lock=false,items=shuffle(o.items);const n=items.length;
+ const cur=()=>items[i];
+ function show(){lock=false;$(o.f).textContent="";$(o.n).style.display="none";
+  if(i>=n){$(o.f).innerHTML=`<div class="win">${sc>=n-1?"🏆 Super!":"👍 Gut!"} ${sc} / ${n}</div>`;$(o.c).style.display="none";$(o.p).style.display="none";dots(o.d,n,n);if(sc>=n-1){sWin();boom()}
+   $(o.n).textContent="↻ Nochmal";$(o.n).style.display="";$(o.n).onclick=()=>{i=sc=0;items=shuffle(o.items);$(o.c).style.display="";$(o.p).style.display="";$(o.s).textContent=`0 / ${n}`;show()};return}
+  dots(o.d,n,i);$$(o.c+" .btn").forEach(b=>{b.disabled=false});setTimeout(()=>say(cur()[0],slow),250)}
+ $(o.p).onclick=()=>say(cur()[0],slow);
+ $(o.sl).onclick=e=>{slow=!slow;e.currentTarget.classList.toggle("on",slow);say(cur()[0],slow)};
+ $$(o.c+" .btn").forEach(b=>b.onclick=()=>{if(lock)return;const q=cur();
+  if(b.dataset.a===q[1]){lock=true;sc++;sOk();$(o.s).textContent=`${sc} / ${n}`;$(o.f).innerHTML=`<span class="good">✔ Richtig!</span><div class="reveal">${q[2]}</div>${q[3]||""}`;$(o.n).textContent="Weiter ➜";$(o.n).style.display="";$(o.n).onclick=()=>{i++;show()}}
+  else{sNo();b.disabled=true;b.classList.add("shake");$(o.f).innerHTML='<span class="bad">✘ Hör noch einmal!</span>'}});
+ show()}
+drill({items:[["Saft","s","<b class=s>S</b>aft"],["Tisch","sch","Ti<b class=sch>sch</b>"],["Bus","s","Bu<b class=s>s</b>"],["Schule","sch","<b class=sch>Sch</b>ule"],["Salz","s","<b class=s>S</b>alz"],["Fisch","sch","Fi<b class=sch>sch</b>"],["Suppe","s","<b class=s>S</b>uppe"],["Schuh","sch","<b class=sch>Sch</b>uh"]],
+ p:"#p1",sl:"#sl1",c:"#c1",f:"#f1",n:"#n1",d:"#d1",s:"#s1"});
+const H=s=>`<b class=scht>${s}</b>`,T=s=>`<b class=st>${s}</b>`;
+const W=(w,a,html,why)=>[w,a,html,`<div style="font-size:17px;font-weight:600">${why}</div>`];
+drill({items:[
+ W("Fest","st",`Fe${T("st")}`,"Wortende → st"),W("Dienstag","st",`Dien${T("st")}ag`,"im Wort → st"),W("stehen","scht",`${H("st")}ehen`,"Wortanfang → scht"),
+ W("Start","scht",`${H("St")}art`,"Wortanfang → scht"),W("meistens","st",`mei${T("st")}ens`,"im Wort → st"),W("Stress","scht",`${H("St")}ress`,"Wortanfang → scht"),
+ W("Obst","st",`Ob${T("st")}`,"Wortende → st"),W("vorstellen","scht",`vor${H("st")}ellen`,"Silbenanfang (vor|stellen) → scht"),W("Frühstück","scht",`Früh${H("st")}ück`,"Silbenanfang (Früh|stück) → scht"),
+ W("stimmen","scht",`${H("st")}immen`,"Wortanfang → scht"),W("lustig","st",`lu${T("st")}ig`,"im Wort → st"),W("Durst","st",`Dur${T("st")}`,"Wortende → st")],
+ p:"#p2",sl:"#sl2",c:"#c2",f:"#f2",n:"#n2",d:"#d2",s:"#s2"});
+
+// Regel ergänzen
+$$(".rrow").forEach(r=>r.querySelectorAll(".tg").forEach(b=>b.onclick=()=>{r.querySelectorAll(".tg").forEach(x=>x.classList.remove("pick","ok","no"));b.classList.add("pick");tone(520,.08)}));
+$("#chk3").onclick=()=>{let ok=0;$$(".rrow").forEach(r=>{const p=r.querySelector(".pick");r.querySelectorAll(".tg").forEach(x=>x.classList.remove("ok","no"));if(p){const good=p.dataset.a===r.dataset.right;p.classList.add(good?"ok":"no");if(good)ok++}});
+ if(ok===2){sWin();boom();$("#f3").innerHTML='<span class="good">🏆 Genau! Anfang → scht · Ende / innen → st</span>'}else{sNo();$("#f3").innerHTML='<span class="bad">✘ Fast! Denk an: Start, Frühstück, Fest, lustig.</span>'}};
+
+// Nachsprechen
+const SE=[["Am Dienstag esse ich Obst zum Frühstück.",`Am Dien<b class=st>st</b>ag es<b class=s>s</b>e ich Ob<b class=st>st</b> zum Früh<b class=scht>st</b>ück.`],["Der Student steht an der Bushaltestelle.",`Der <b class=scht>St</b>udent <b class=scht>st</b>eht an der Bu<b class=s>s</b>halte<b class=scht>st</b>elle.`],["Die Schwester isst Fisch in der Schule.",`Die <b class=sch>Sch</b>we<b class=s>s</b>ter i<b class=s>ss</b>t Fi<b class=sch>sch</b> in der <b class=sch>Sch</b>ule.`],["Ich habe Durst. Der Saft ist am Tisch.",`Ich habe Dur<b class=st>st</b>. Der <b class=s>S</b>aft i<b class=st>st</b> am Ti<b class=sch>sch</b>.`],["Das Fest ist lustig, aber es gibt Stress.",`Das Fe<b class=st>st</b> i<b class=st>st</b> lu<b class=st>st</b>ig, aber es gibt <b class=scht>St</b>ress.`]];
+$("#sents").innerHTML=SE.map((s,k)=>`<div class="sent"><button data-k="${k}" aria-label="Hören">🔊</button><span>${s[1]}</span><button data-k="${k}" data-slow="1" style="margin-left:auto;background:#3b82f6" aria-label="Langsam">🐢</button></div>`).join("");
+$$("#sents button").forEach(b=>b.onclick=()=>say(SE[b.dataset.k][0],!!b.dataset.slow));
+</script>
+</body>
+</html>
